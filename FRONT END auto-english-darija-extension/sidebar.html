@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traducteur Darija</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 400px;
+            height: 600px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 14px;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.5);
+            background: white;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        button {
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        #translateBtn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        #translateBtn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        #translateBtn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #copyBtn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        #copyBtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .status {
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .status.loading {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+        }
+
+        .status.success {
+            background: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+        }
+
+        .status.error {
+            background: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+        }
+
+        .info {
+            font-size: 12px;
+            text-align: center;
+            opacity: 0.8;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .char-count {
+            text-align: right;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🪔 Traducteur Darija</h1>
+        
+        <div class="input-group">
+            <label for="sourceText">Texte sélectionné :</label>
+            <textarea id="sourceText" placeholder="Le texte sélectionné apparaîtra ici..." readonly></textarea>
+        </div>
+
+        <div class="input-group">
+            <label for="translatedText">Traduction Darija :</label>
+            <textarea id="translatedText" placeholder="La traduction apparaîtra ici..." readonly></textarea>
+        </div>
+
+        <div class="button-group">
+            <button id="translateBtn" disabled>Traduire</button>
+            <button id="copyBtn">Copier la traduction</button>
+        </div>
+
+        <div class="status" id="status">
+            Sélectionnez du texte sur la page pour commencer
+        </div>
+
+        <div class="info">
+            Sélectionnez du texte sur n'importe quelle page web, puis cliquez sur "Traduire"
+        </div>
+    </div>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>
