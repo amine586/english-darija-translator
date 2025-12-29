@@ -31,6 +31,3 @@ et d’un **frontend sous forme d’extension web** qui consomme cette API.
 - Communication avec l’API REST
 
 ---
-
-## 🗂️ Structure du projet
-
